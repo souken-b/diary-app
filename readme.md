@@ -4,31 +4,35 @@ diary app
 I created this application to record our daily life like diary!!  
 This application have six content such as work, study, sport, hobby, family, and cooking, so you can choose items from these and record your memory about item.  
 
-select items from this view  
-
+select items from this view   
 <div align="center">
 <kbd><img width="1279" alt="contentview" src="https://user-images.githubusercontent.com/54773770/73172954-8fd7f600-4147-11ea-8ce1-38da4498faf5.png"></kbd>
 </div>  
-
-
+<br>  
+your posts are showned like this view 
+<br>    
+<div align="center">
+<kbd><img width="1279" alt="showarticle" src="https://user-images.githubusercontent.com/54773770/73173447-b9455180-4148-11ea-9df0-701f513fc055.png"></kbd>
+</div>  
+<br>  
 For example if you want to record today's your work and its detail, you can use this application like this image!  
-
+<br>    
 <div align="center">
 <kbd><img width="1279" alt="imageofapp" src="https://user-images.githubusercontent.com/54773770/73170984-0aeadd80-4143-11ea-95c8-5ecef6f41606.png"></kbd>
 </div>
-
+<br>  
 
 # description  
 This application enable us to create post and show,edit,delete on each post.  
 And in addition to these function, you can write additional note writings on each post like paste Post-it; in fact I designed this note writing layout imaging Post-it.  
 
-
-column of note writing   
+  
+column of note writing  
+<br>    
 <div align="center">
 <kbd><img width="1279" alt="memoimage" src="https://user-images.githubusercontent.com/54773770/73171133-5dc49500-4143-11ea-8734-78d21da43c3c.png"></kbd>  
 </div>  
-
-
+<br>  
 Your post recorded imformation of year, month, day,and time that post was created, so you can look back easily if it passed few days from the day you created the post.  
 
 The layout of application is monotone and simple, because I wanted to create cool design.  
