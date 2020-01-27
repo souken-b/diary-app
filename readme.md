@@ -2,21 +2,20 @@ diary app
 ===  
 # what's diary app  
 I created this application to record our daily life like diary!!  
-This application have six content such as work, study, sport, hobby, family, and cooking, so you can choose items from these and record your memory about item.  
+This application have six content such as work, study, sport, hobby, family, and cooking, so you can choose item from these and record your memory about it.  
 
 select items from this view   
 <div align="center">
-<kbd><img width="1279" alt="contentview" src="https://user-images.githubusercontent.com/54773770/73172954-8fd7f600-4147-11ea-8ce1-38da4498faf5.png"></kbd>
+<kbd><img width="1279" alt="contentview" src="https://user-images.githubusercontent.com/54773770/73172954-8fd7f600-4147-11ea-8ce1-38da4498faf5.png"></kbd><br>  
 </div>  
 <br>  
-your posts are showned like this view 
-<br>    
+your posts are shown like this view  
+<br>  
 <div align="center">
 <kbd><img width="1279" alt="showarticle" src="https://user-images.githubusercontent.com/54773770/73173447-b9455180-4148-11ea-9df0-701f513fc055.png"></kbd>
 </div>  
+<br>  For example if you want to record today's your work and its detail, you can use this application like this image!     
 <br>  
-For example if you want to record today's your work and its detail, you can use this application like this image!  
-<br>    
 <div align="center">
 <kbd><img width="1279" alt="imageofapp" src="https://user-images.githubusercontent.com/54773770/73170984-0aeadd80-4143-11ea-95c8-5ecef6f41606.png"></kbd>
 </div>
