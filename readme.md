@@ -3,10 +3,18 @@ diary app
 # what's diary app  
 I created this application to record our daily life like diary!!  
 This application have six content such as work, study, sport, hobby, family, and cooking, so you can choose items from these and record your memory about item.  
+
+select items from this view  
+
+<div align="center">
+<kbd><img width="1279" alt="contentview" src="https://user-images.githubusercontent.com/54773770/73172954-8fd7f600-4147-11ea-8ce1-38da4498faf5.png"></kbd>
+</div>  
+
+
 For example if you want to record today's your work and its detail, you can use this application like this image!  
 
 <div align="center">
-<img width="1279" alt="imageofapp" src="https://user-images.githubusercontent.com/54773770/73170984-0aeadd80-4143-11ea-95c8-5ecef6f41606.png">
+<kbd><img width="1279" alt="imageofapp" src="https://user-images.githubusercontent.com/54773770/73170984-0aeadd80-4143-11ea-95c8-5ecef6f41606.png"></kbd>
 </div>
 
 
@@ -17,7 +25,7 @@ And in addition to these function, you can write additional note writings on eac
 
 column of note writing   
 <div align="center">
-<img width="1279" alt="memoimage" src="https://user-images.githubusercontent.com/54773770/73171133-5dc49500-4143-11ea-8734-78d21da43c3c.png">  
+<kbd><img width="1279" alt="memoimage" src="https://user-images.githubusercontent.com/54773770/73171133-5dc49500-4143-11ea-8734-78d21da43c3c.png"></kbd>  
 </div>  
 
 
