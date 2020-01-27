@@ -4,6 +4,7 @@ diary app
 I created this application to record our daily life like diary!!  
 This application have six content such as work, study, sport, hobby, family, and cooking, so you can choose items from these and record your memory about item.  
 For example if you want to record today's your work and its detail, you can use this application like this image!  
+<img width="1279" alt="imageofapp" src="https://user-images.githubusercontent.com/54773770/73170984-0aeadd80-4143-11ea-95c8-5ecef6f41606.png">
 
 
 # description  
@@ -29,7 +30,7 @@ I use XAMPP package for constructing these server, so put this application proje
 And you have to set .env file to match for your environment.  
 
 # My environment and technology used  
-(bold is my first time using)
+(bold is my firsttime using)
 1.OS  
 >mac OS  
 
