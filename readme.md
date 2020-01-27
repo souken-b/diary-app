@@ -23,7 +23,7 @@ your posts are shown like this view
 
 # description  
 This application enable us to create post and show,edit,delete on each post.  
-And in addition to these function, you can write additional note writings on each post like paste Post-it; in fact I designed this note writing layout imaging Post-it.  
+And in addition to these function, you can write additional note writings on each post like pasting Post-it ;in fact I designed this note writing layout imaging Post-it.  
 
   
 column of note writing  
@@ -32,7 +32,7 @@ column of note writing
 <kbd><img width="1279" alt="memoimage" src="https://user-images.githubusercontent.com/54773770/73171133-5dc49500-4143-11ea-8734-78d21da43c3c.png"></kbd>  
 </div>  
 <br>  
-Your post recorded imformation of year, month, day,and time that post was created, so you can look back easily if it passed few days from the day you created the post.  
+Your post have imformation of year, month, day,and time that post was created, so you can look back easily if it passed few days from the day you created the post.  
 
 The layout of application is monotone and simple, because I wanted to create cool design.  
 But I think it is not good the design of application is too simple, so I designed column of note writing collapsible.  
@@ -51,7 +51,7 @@ I use XAMPP package for constructing these server, so put this application proje
 And you have to set .env file to match for your environment.  
 
 # My environment and technology used  
-(bold is my firsttime using)
+(bold is my firsttime using)  
 1.OS  
 >mac OS  
 
