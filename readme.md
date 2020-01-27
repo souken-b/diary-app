@@ -1,7 +1,6 @@
 diary app  
 ===  
-# overview  
-## what's diary app  
+# what's diary app  
 I created this application to record our daily life like diary!!  
 This application have six content such as work, study, sport, hobby, family, and cooking, so you can choose items from these and record your memory about item.  
 For example if you want to record today's your work and its detail, you can use this application like this image!  
