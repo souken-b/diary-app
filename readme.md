@@ -4,14 +4,24 @@ diary app
 I created this application to record our daily life like diary!!  
 This application have six content such as work, study, sport, hobby, family, and cooking, so you can choose items from these and record your memory about item.  
 For example if you want to record today's your work and its detail, you can use this application like this image!  
+
+<div align="center">
 <img width="1279" alt="imageofapp" src="https://user-images.githubusercontent.com/54773770/73170984-0aeadd80-4143-11ea-95c8-5ecef6f41606.png">
+</div>
 
 
 # description  
 This application enable us to create post and show,edit,delete on each post.  
 And in addition to these function, you can write additional note writings on each post like paste Post-it; in fact I designed this note writing layout imaging Post-it.  
 
-Your post have year, month, day,and time that post was created, so you can look back easily if it passed few days from the day you created the post.  
+
+column of note writing   
+<div align="center">
+<img width="1279" alt="memoimage" src="https://user-images.githubusercontent.com/54773770/73171133-5dc49500-4143-11ea-8734-78d21da43c3c.png">  
+</div>  
+
+
+Your post recorded imformation of year, month, day,and time that post was created, so you can look back easily if it passed few days from the day you created the post.  
 
 The layout of application is monotone and simple, because I wanted to create cool design.  
 But I think it is not good the design of application is too simple, so I designed column of note writing collapsible.  
