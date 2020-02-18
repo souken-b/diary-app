@@ -18,21 +18,21 @@
 @endsection
 
 @section('maincontent')
-    @foreach($user->works()->select('id','title','content','created_at','updated_at')->get() as $work)
+    @foreach($items as $item)
     <div class="card mb-2">
         <div class="card-header">
-            @if($work->title != null)
-            <span class="text-left"><h4><a class="text-secondary" href="{{action('WorkController@show',['work'=>$work])}}">{{$work->title}}</a></h4></span>
+            @if($item->title != null)
+            <span class="text-left"><h4><a class="text-secondary" href="{{action('WorkController@show',['item'=>$item])}}">{{$item->title}}</a></h4></span>
             <div class="text-right">
-                <span class=" mr-3">{{"last modified　".$work->updated_at->format('Y年m月d日H時i分')}}</span>
-                <span class="">{{"upload　".$work->created_at->format('Y年m月d日H時i分')}}</span>
+                <span class=" mr-3">{{"last modified　".$item->updated_at->format('Y年m月d日H時i分')}}</span>
+                <span class="">{{"upload　".$item->created_at->format('Y年m月d日H時i分')}}</span>
             </div> 
             @else
             <span class="text-left"><h4><a class="text-secondary" href="{{action('WorkController@index')}}">タイトルがありません</a></h4></span>
             @endif
         </div>
-        @if($work->content != null)
-            <div class="card-body text center">{{$work->content}}</div>
+        @if($item->content != null)
+            <div class="card-body text center">{{$item->content}}</div>
         @else
             <div class="card-body text center">内容が記入されていません</div>
         @endif

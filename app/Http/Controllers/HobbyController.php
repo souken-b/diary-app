@@ -10,8 +10,9 @@ class HobbyController extends Controller
 {
     public function index(){
         $user = Auth::user();
+        $items = $user->hobbies()->orderBy('created_at','desc')->paginate(5);
 
-        return view('hobby.index',compact('user'));
+        return view('hobby.index',compact('items'));
 
     }
 
@@ -30,37 +31,38 @@ class HobbyController extends Controller
         $user = User::findOrFail($params['user_id']);
 
         $user->hobbies()->create($params);
-        
 
-        return view('hobby.index',compact('user'));
+        $items = $user->hobbies()->orderBy('created_at','desc')->paginate(5);
+        
+        return view('hobby.index',compact('items'));
 
     }
 
-    public function edit($hobby_id){
-        $hobby = Hobby::findOrFail($hobby_id);
+    public function edit($item){
+        $hobby = Hobby::findOrFail($item);
         return view('hobby.edit',compact('hobby'));
     }
 
-    public function update($hobby_id,Request $request){
+    public function update($item,Request $request){
         $params = $request->validate([
             'title'=>'required|max:50',
             'content'=>'required|max:2000',
         ]);
 
-        $hobby = Hobby::findOrFail($hobby_id);
+        $hobby = Hobby::findOrFail($item);
         $hobby->fill($params)->save();
 
         return view('hobby.show',compact('hobby'));
     }
 
-    public function show($hobby_id){
-        $hobby = Hobby::findOrFail($hobby_id);
+    public function show($item){
+        $hobby = Hobby::findOrFail($item);
 
         return view('hobby.show',compact('hobby'));
     }
 
-    public function destroy($hobby_id){
-        $hobby = Hobby::findOrFail($hobby_id);
+    public function destroy($item){
+        $hobby = Hobby::findOrFail($item);
 
         \DB::transaction(function()use($hobby){
             $hobby->hobby_memos()->delete();
@@ -68,8 +70,9 @@ class HobbyController extends Controller
     
         });
         $user = Auth::user();
+        $items = $user->hobbies()->orderBy('created_at','desc')->paginate(5);
 
-        return view('hobby.index',compact('user'));
+        return view('hobby.index',compact('items'));
     }
     //
     //

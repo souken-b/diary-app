@@ -11,8 +11,10 @@ class WorkController extends Controller
 {
     public function index(){
         $user = Auth::user();
+    
+        $items = $user->works()->orderBy('created_at','desc')->paginate(5);
 
-        return view('work.index',compact('user'));
+        return view('work.index',compact('items'));
 
     }
 
@@ -32,35 +34,38 @@ class WorkController extends Controller
 
         $user->works()->create($params);
         
+        $items = $user->works()->paginate(5);
+        
 
-        return view('work.index',compact('user'));
+        return view('work.index',compact('items'));
 
     }
 
-    public function edit($work_id){
-        $work = Work::findOrFail($work_id);
+    public function edit($item){
+        $work = Work::findOrFail($item);
         return view('work.edit',compact('work'));
     }
 
-    public function update($work_id,Request $request){
+    public function update($item,Request $request){
         $params = $request->validate([
             'title'=>'required|max:50',
             'content'=>'required|max:2000',
         ]);
 
-        $work = Work::findOrFail($work_id);
+        $work = Work::findOrFail($item);
         $work->fill($params)->save();
 
         return view('work.show',compact('work'));
     }
 
-    public function show($work_id){
-        $work = Work::findOrFail($work_id);
+    public function show($item){
+        
+        $work = Work::findOrFail($item);
 
         return view('work.show',compact('work'));
     }
-    public function destroy($work_id){
-        $work = Work::findOrFail($work_id);
+    public function destroy($item){
+        $work = Work::findOrFail($item);
         \DB::transaction(function()use($work){
             $work->work_memos()->delete();
             $work->delete();
@@ -68,7 +73,9 @@ class WorkController extends Controller
         });
         $user = Auth::user();
 
-        return view('work.index',compact('user'));
+        $items = $user->works()->paginate(5);
+
+        return view('work.index',compact('items'));
 
 
     }

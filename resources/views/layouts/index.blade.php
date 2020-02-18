@@ -19,6 +19,7 @@
             <div class="row-cols-1 mt-5">
                 @yield('maincontent')
             </div>
+            {{$items->links()}}
         </div>
 
 

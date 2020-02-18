@@ -11,7 +11,9 @@ class CookingController extends Controller
     public function index(){
         $user = Auth::user();
 
-        return view('cooking.index',compact('user'));
+        $items = $user->cooks()->orderBy('created_at','desc')->paginate(5);
+
+        return view('cooking.index',compact('items'));
 
     }
 
@@ -30,36 +32,37 @@ class CookingController extends Controller
         $user = User::findOrFail($params['user_id']);
 
         $user->cooks()->create($params);
-        
 
-        return view('cooking.index',compact('user'));
+        $items = $user->cooks()->orderBy('created_at','desc')->paginate(5);
+        
+        return view('cooking.index',compact('items'));
 
     }
 
-    public function edit($cooking_id){
-        $cooking = Cooking::findOrFail($cooking_id);
+    public function edit($item){
+        $cooking = Cooking::findOrFail($item);
         return view('cooking.edit',compact('cooking'));
     }
 
-    public function update($cooking_id,Request $request){
+    public function update($item,Request $request){
         $params = $request->validate([
             'title'=>'required|max:50',
             'content'=>'required|max:2000',
         ]);
 
-        $cooking = Cooking::findOrFail($cooking_id);
+        $cooking = Cooking::findOrFail($item);
         $cooking->fill($params)->save();
 
         return view('cooking.show',compact('cooking'));
     }
 
-    public function show($cooking_id){
-        $cooking = Cooking::findOrFail($cooking_id);
+    public function show($item){
+        $cooking = Cooking::findOrFail($item);
 
         return view('cooking.show',compact('cooking'));
     }
-    public function destroy($cooking_id){
-        $cooking = Cooking::findOrFail($cooking_id);
+    public function destroy($item){
+        $cooking = Cooking::findOrFail($item);
         
         \DB::transaction(function()use($cooking){
             $cooking->cooking_memos()->delete();
@@ -67,7 +70,9 @@ class CookingController extends Controller
         });
         $user = Auth::user();
 
-        return view('cooking.index',compact('user'));
+        $items = $user->cooks()->orderBy('created_at','desc')->paginate(5);
+
+        return view('cooking.index',compact('items'));
     }
     //
 }

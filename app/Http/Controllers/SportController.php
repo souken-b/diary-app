@@ -10,8 +10,9 @@ class SportController extends Controller
 {
     public function index(){
         $user = Auth::user();
+        $items = $user->sports()->orderby('created_at','desc')->paginate(5);
 
-        return view('sport.index',compact('user'));
+        return view('sport.index',compact('items'));
 
     }
     public function create(){
@@ -19,8 +20,8 @@ class SportController extends Controller
 
         return view('sport.create',compact('user'));
     }
-    public function show($sport_id){
-        $sport =  Sport::findOrFail($sport_id);
+    public function show($item){
+        $sport =  Sport::findOrFail($item);
         return view('sport.show',compact('sport'));
 
     }
@@ -32,34 +33,36 @@ class SportController extends Controller
         ]);
         $user = User::findOrFail($params['user_id']);
         $user->sports()->create($params);
+        $items = $user->sports()->orderBy('created_at','desc')->paginate(5);
 
         return view('sport.index',compact('user'));
 
     }
-    public function update($sport_id,Request $request){
+    public function update($item,Request $request){
         $params = $request->validate([
             'title'=>'required|max:50',
             'content'=>'required|max:2000',
         ]);
-        $sport = Sport::findOrFail($sport_id);
+        $sport = Sport::findOrFail($item);
         $sport->fill($params)->save();
         return view('sport.show',compact('sport'));
     }
-    public function edit($sport_id){
-        $sport = Sport::findOrFail($sport_id);
+    public function edit($item){
+        $sport = Sport::findOrFail($item);
         return view('sport.edit',compact('sport'));
 
     }
-    public function destroy($sport_id){
-        $sport = Sport::findOrFail($sport_id);
+    public function destroy($item){
+        $sport = Sport::findOrFail($item);
         
         \DB::transaction(function()use($sport){
             $sport->sport_memos()->delete();
             $sport->delete();
         });
         $user = Auth::user();
+        $items = $user->sports()->orderBy('created_at','desc')->paginate(5);
 
-        return view('sport.index',compact('user'));
+        return view('sport.index',compact('items'));
     }
 
     
