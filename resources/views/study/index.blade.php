@@ -18,21 +18,21 @@
 @endsection
 
 @section('maincontent')
-    @foreach($user->studies()->select('id','title','content','created_at','updated_at')->get() as $study)
+    @foreach($items as $item)
     <div class="card mb-2">
         <div class="card-header">
-            @if($study->title != null)
-            <span class="text-left"><h4><a class="text-secondary" href="{{action('StudyController@show',['study'=>$study])}}">{{$study->title}}</a></h4></span>
+            @if($item->title != null)
+            <span class="text-left"><h4><a class="text-secondary" href="{{action('StudyController@show',['item'=>$item])}}">{{$item->title}}</a></h4></span>
             <div class="text-right">
-                <span class=" mr-3">{{"last modified　".$study->updated_at->format('Y年m月d日H時i分')}}</span>
-                <span class="">{{"upload　".$study->created_at->format('Y年m月d日H時i分')}}</span>
+                <span class=" mr-3">{{"last modified　".$item->updated_at->format('Y年m月d日H時i分')}}</span>
+                <span class="">{{"upload　".$item->created_at->format('Y年m月d日H時i分')}}</span>
             </div> 
             @else
             <span class="text-left"><h4><a class="text-secondary" href="{{action('StudyController@index')}}">タイトルがありません</a></h4></span>
             @endif
         </div>
-        @if($study->content != null)
-            <div class="card-body text center">{{$study->content}}</div>
+        @if($item->content != null)
+            <div class="card-body text center">{{$item->content}}</div>
         @else
             <div class="card-body text center">内容が記入されていません</div>
         @endif

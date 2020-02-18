@@ -17,14 +17,14 @@
 @endsection
 
 @section('maincontent')
-    @foreach($user->cooks()->select('id','title','content','created_at','updated_at')->get() as $cooking)
+    @foreach($items as $item)
     <div class="card mb-2">
         <div class="card-header">
-            @if($cooking->title != null)
-            <span class="text-left"><h4><a class="text-secondary" href="{{action('CookingController@show',['cooking'=>$cooking])}}">{{$cooking->title}}</a></h4></span>
+            @if($item->title != null)
+            <span class="text-left"><h4><a class="text-secondary" href="{{action('CookingController@show',['item'=>$item])}}">{{$item->title}}</a></h4></span>
             <div class="text-right">
-                <span class=" mr-3">{{"last modified　".$cooking->updated_at->format('Y年m月d日H時i分')}}</span>
-                <span class="">{{"upload　".$cooking->created_at->format('Y年m月d日H時i分')}}</span>
+                <span class=" mr-3">{{"last modified　".$item->updated_at->format('Y年m月d日H時i分')}}</span>
+                <span class="">{{"upload　".$item->created_at->format('Y年m月d日H時i分')}}</span>
                 
             </div> 
             @else
@@ -33,8 +33,8 @@
 
         </div>
 
-        @if($cooking->content != null)
-            <div class="card-body text center">{{$cooking->content}}</div>
+        @if($item->content != null)
+            <div class="card-body text center">{{$item->content}}</div>
         @else
             <div class="card-body text center">内容が記入されていません</div>
         @endif

@@ -10,8 +10,9 @@ class FamilyController extends Controller
 {
     public function index(){
         $user = Auth::user();
+        $items = $user->families()->orderBy('created_at','desc')->paginate(5);
 
-        return view('family.index',compact('user'));
+        return view('family.index',compact('items'));
 
     }
 
@@ -31,35 +32,36 @@ class FamilyController extends Controller
 
         $user->families()->create($params);
         
+        $items = $user->families()->orderBy('created_at','desc')->paginate(5);
 
-        return view('family.index',compact('user'));
+        return view('family.index',compact('items'));
 
     }
 
-    public function edit($family_id){
-        $family = Family::findOrFail($family_id);
+    public function edit($item){
+        $family = Family::findOrFail($item);
         return view('family.edit',compact('family'));
     }
 
-    public function update($family_id,Request $request){
+    public function update($item,Request $request){
         $params = $request->validate([
             'title'=>'required|max:50',
             'content'=>'required|max:2000',
         ]);
 
-        $family = Family::findOrFail($family_id);
+        $family = Family::findOrFail($item);
         $family->fill($params)->save();
 
         return view('family.show',compact('family'));
     }
 
-    public function show($family_id){
-        $family = Family::findOrFail($family_id);
+    public function show($item){
+        $family = Family::findOrFail($item);
 
         return view('family.show',compact('family'));
     }
-    public function destroy($family_id){
-        $family = Family::findOrFail($family_id);
+    public function destroy($item){
+        $family = Family::findOrFail($item);
         
         \DB::transaction(function()use($family){
             $family->family_memos()->delete();
@@ -67,7 +69,9 @@ class FamilyController extends Controller
         });
         $user = Auth::user();
 
-        return view('family.index',compact('user'));
+        $items = $user->families()->orderBy('created_at','desc')->paginate(5);
+
+        return view('family.index',compact('items'));
     }
     //
     //

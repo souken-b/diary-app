@@ -18,21 +18,21 @@
 @endsection
 
 @section('maincontent')
-    @foreach($user->hobbies()->select('id','title','content','created_at','updated_at')->get() as $hobby)
+    @foreach($items as $item)
     <div class="card mb-2">
         <div class="card-header">
-            @if($hobby->title != null)
-            <span class="text-left"><h4><a class="text-secondary" href="{{action('HobbyController@show',['hobby'=>$hobby])}}">{{$hobby->title}}</a></h4></span>
+            @if($item->title != null)
+            <span class="text-left"><h4><a class="text-secondary" href="{{action('HobbyController@show',['item'=>$item])}}">{{$item->title}}</a></h4></span>
             <div class="text-right">
-                <span class=" mr-3">{{"last modified　".$hobby->updated_at->format('Y年m月d日H時i分')}}</span>
-                <span class="">{{"upload　".$hobby->created_at->format('Y年m月d日H時i分')}}</span>
+                <span class=" mr-3">{{"last modified　".$item->updated_at->format('Y年m月d日H時i分')}}</span>
+                <span class="">{{"upload　".$item->created_at->format('Y年m月d日H時i分')}}</span>
             </div> 
             @else
             <span class="text-left"><h4><a class="text-secondary" href="{{action('HobbyController@index')}}">タイトルがありません</a></h4></span>
             @endif
         </div>
-        @if($hobby->content != null)
-            <div class="card-body text center">{{$hobby->content}}</div>
+        @if($item->content != null)
+            <div class="card-body text center">{{$item->content}}</div>
         @else
             <div class="card-body text center">内容が記入されていません</div>
         @endif

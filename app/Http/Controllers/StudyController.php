@@ -10,8 +10,9 @@ class StudyController extends Controller
 {
     public function index(){
         $user = Auth::user();
+        $items = $user->studies()->orderBy('created_at','desc')->paginate(5);
 
-        return view('study.index',compact('user'));
+        return view('study.index',compact('items'));
 
     }
 
@@ -30,33 +31,35 @@ class StudyController extends Controller
 
         $user->studies()->create($params);
 
-        return view('study.index',compact('user'));
+        $items = $user->studies()->orderBy('created_at','desc')->paginate(5);
+
+        return view('study.index',compact('items'));
 
     }
 
-    public function edit($study_id){
-        $study = Study::findOrFail($study_id);
+    public function edit($item){
+        $study = Study::findOrFail($study);
         return view('study.edit',compact('study'));
     }
 
-    public function update($study_id,Request $request){
+    public function update($item,Request $request){
 
         $params = $request->validate([
             'title'=>'required|max:50',
             'content'=>'required|max:2000',
         ]);
-        $study = Study::findOrFail($study_id);
+        $study = Study::findOrFail($item);
         $study->fill($params)->save();
         return view('study.show',compact('study'));
     }
 
-    public function show($study_id){
-        $study = Study::findOrFail($study_id);
+    public function show($item){
+        $study = Study::findOrFail($item);
         return view('study.show',compact('study'));
     }
 
-    public function destroy($study_id){
-        $study = Study::findOrFail($study_id);
+    public function destroy($item){
+        $study = Study::findOrFail($item);
 
         \DB::transaction(function()use($study){
             $study->study_memos()->delete();
@@ -65,7 +68,9 @@ class StudyController extends Controller
         });
         $user = Auth::user();
 
-        return view('study.index',compact('user'));
+        $items = $user->studies()->orderBy('created_at','desc')->paginate(5);
+
+        return view('study.index',compact('items'));
     }
     //
 }
