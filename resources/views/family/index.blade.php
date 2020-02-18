@@ -22,7 +22,7 @@
         <a class="nav-link" href="{{action('AdminUserController@index')}}">Login page</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="{{action('FamilyController@create')}}">Createn post</a>
+        <a class="nav-link" href="{{action('FamilyController@create')}}">Create post</a>
         </li>
         
         
